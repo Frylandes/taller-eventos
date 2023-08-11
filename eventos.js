@@ -1,9 +1,15 @@
-alert("Puñito")
-
 
 const botonDiv = document.getElementById("botonDiv");
 
+const miBoton = document.getElementById("miBoton");
 
-botonDiv.addEventListener("click", function() {
-    alert("Hola! Soy el div");
+miBoton.addEventListener("click", function (event) {
+    alert("Hola! Soy el botón");
+    event.stopPropagation();
+});
+
+botonDiv.addEventListener("click", function (event) {
+    if (event.target !== miBoton) {
+        alert("Hola! Soy el div");
+    }
 });
